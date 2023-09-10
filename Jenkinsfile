@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build hello-word-java .'
+        sh 'docker build -t hello-word-java .'
       }
     }
 
