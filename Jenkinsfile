@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'docker run -itd --name hello-word -p 80:8080 hello-word-java'
         sleep 5
-        sh 'curl:localhost:8080'
+        sh 'curl localhost:8080'
         sh 'docker stop hello-word && docker rm hello-word'
       }
     }
