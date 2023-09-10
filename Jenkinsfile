@@ -30,7 +30,7 @@ pipeline {
     stage('Push to DockerHub') {
       steps {
         sh 'docker login '
-        sh 'docker push benakiva/hello-word-java:${env.BUILD_NUMBER}'
+        sh 'docker push benakiva/hello-word-java:$BUILD_NUMBER'
       }
     }
 
