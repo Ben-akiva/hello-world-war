@@ -14,13 +14,16 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build .'
+        sh 'docker build hello-word-java .'
       }
     }
 
     stage('test') {
       steps {
-        sh 'mvn clean package'
+        sh 'docker -itd --name hello-word -p 80:8080 hello-word-java'
+        sleep 5
+        sh 'curl:localhost:8080'
+        sh 'docker stop hello-word && docker rm hello-word'
       }
     }
 
